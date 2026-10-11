@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>ReasonIQ99 - Master Reasoning</title>
-<meta name="viewport" content="width=device-width">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReasonIQ99 - 60 Sec IQ Challenge</title>
 <style>
-body{font-family:Arial;text-align:center;padding:40px;background:#0d0d2b;color:white}
-h1{font-size:40px} span{color:#ffcc00}
-a.btn{background:#ffcc00;color:black;padding:15px 25px;border-radius:30px;text-decoration:none;font-weight:bold}
+body{font-family: 'Segoe UI',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;margin:0;display:flex;justify-content:center;align-items:center;padding:15px;color:white;}
+.card{background:white;color:#2f3542;border-radius:22px;max-width:400px;width:100%;padding:28px;box-shadow:0 25px 50px rgba(0,0,0,0.5);text-align:center;}
+.logo{font-weight:900;font-size:28px;color:#0f0c29;}
+.logo span{color:#f1c40f;}
+.timer{font-size:48px;font-weight:900;color:#ff4757;margin:12px 0;}
+.q{font-size:21px;font-weight:800;margin:15px 0;line-height:1.3;}
+.options button{width:100%;padding:15px;margin:7px 0;border:2px solid #dfe4ea;border-radius:12px;background:white;font-size:17px;font-weight:700;cursor:pointer;}
+.correct{background:#2ed573!important;color:white!important;}
+.wrong{background:#ff4757!important;color:white!important;}
+.result{margin-top:18px;padding:16px;border-radius:12px;display:none;font-weight:700;line-height:1.4;}
+.surprise{background:linear-gradient(135deg,#ffecd2,#fcb69f);border:2px dashed #e17055;}
+.cta{background:#6c5ce7;color:white;padding:13px 22px;border-radius:25px;text-decoration:none;display:inline-block;margin-top:12px;font-weight:800;}
+.small{font-size:11px;color:#636e72;margin-top:8px;}
 </style>
 </head>
 <body>
-<h1>Reason<span>IQ</span>99.in</h1>
-<p>India's Smartest Reasoning Platform - Launching Soon</p>
-<br><br>
-<h2>Crack UGC NET | CSIR | SSC | Banking Reasoning in 99 Days</h2>
-<br>
-<a class="btn" href="#">Start Free Test - Coming Soon</a>
-<br><br><br>
-<p>Domain Created: Oct 10, 2026 | Hyderabad, India</p>
+<div class="card">
+<div class="logo">Reason<span>IQ</span>99.in</div>
+<div class="small">India's Smartest Reasoning Platform | Hyderabad</div>
+<div class="timer" id="timer">00:60</div>
+<div class="q">What replaces? <br> 2, 6, 12, 20, 30,?</div>
+<div class="options" id="opts">
+<button onclick="check(0)">A) 40</button>
+<button onclick="check(1)">B) 42</button>
+<button onclick="check(2)">C) 38</button>
+<button onclick="check(3)">D) 44</button>
+</div>
+<div class="result" id="res"></div>
+<div class="small">Domain Created: Oct 10, 2026 | Crack UGC NET | CSIR | SSC | Banking in 99 Days</div>
+</div>
+<script>
+let t=60, ans=false;
+let iv=setInterval(()=>{
+t--; document.getElementById('timer').innerText=`00:${String(t).padStart(2,'0')}`;
+if(t<=0 &&!ans){clearInterval(iv); show(2);}
+},1000);
+function check(i){
+if(ans) return; ans=true; clearInterval(iv);
+let b=document.querySelectorAll('#opts button');
+if(i==1){b[i].classList.add('correct'); show(1);}
+else{b[i].classList.add('wrong'); b[1].classList.add('correct'); show(0);}
+}
+function show(s){
+let r=document.getElementById('res'); r.style.display='block';
+if(s==2){r.innerHTML=`⏰ Time Up! Answer is <b>42</b><br>Pattern +4,+6,+8,+10,+12<br><a class='cta' href='https://wa.me/918185808476?text=ReasonIQ99%20TimeUp'>Next Puzzle 👉</a>`; r.style.background='#ffeaa7';}
+else if(s==1){r.innerHTML=`<div class='surprise'>🎉 CORRECT! YOU ARE TOP 1%!<br>🎁 SURPRISE UNLOCKED!<br>You Won FREE E-Book Worth ₹299!<br><a class='cta' href='https://wa.me/918185808476?text=I%20WON%20ReasonIQ99%20Challenge%2042'>Claim on WhatsApp 📲</a><br><small>Offer for First 99 Only!</small></div>`; r.className='result surprise'; r.style.display='block';}
+else{r.innerHTML=`❌ Wrong! Answer is <b>42</b><br>90% people fail this!<br><a class='cta' href='https://wa.me/918185808476?text=ReasonIQ99%20Wrong%20Answer'>Get Solution 👉</a>`; r.style.background='#fab1a0';}
+}
+</script>
 </body>
-  </html>
+</html>
