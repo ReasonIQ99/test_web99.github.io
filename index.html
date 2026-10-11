@@ -3,56 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReasonIQ99 - 60 Sec IQ Challenge</title>
+<title>ReasonIQ99.in - UGC NET | CSIR NET | JAM | GATE | Coast Guard</title>
 <style>
-body{font-family: 'Segoe UI',sans-serif;background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;margin:0;display:flex;justify-content:center;align-items:center;padding:15px;color:white;}
-.card{background:white;color:#2f3542;border-radius:22px;max-width:400px;width:100%;padding:28px;box-shadow:0 25px 50px rgba(0,0,0,0.5);text-align:center;}
-.logo{font-weight:900;font-size:28px;color:#0f0c29;}
-.logo span{color:#f1c40f;}
-.timer{font-size:48px;font-weight:900;color:#ff4757;margin:12px 0;}
-.q{font-size:21px;font-weight:800;margin:15px 0;line-height:1.3;}
-.options button{width:100%;padding:15px;margin:7px 0;border:2px solid #dfe4ea;border-radius:12px;background:white;font-size:17px;font-weight:700;cursor:pointer;}
-.correct{background:#2ed573!important;color:white!important;}
-.wrong{background:#ff4757!important;color:white!important;}
-.result{margin-top:18px;padding:16px;border-radius:12px;display:none;font-weight:700;line-height:1.4;}
-.surprise{background:linear-gradient(135deg,#ffecd2,#fcb69f);border:2px dashed #e17055;}
-.cta{background:#6c5ce7;color:white;padding:13px 22px;border-radius:25px;text-decoration:none;display:inline-block;margin-top:12px;font-weight:800;}
-.small{font-size:11px;color:#636e72;margin-top:8px;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{background:#f8f9fa;color:#2f3542}
+.header{background:#0f0c29;color:white;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{font-weight:900;font-size:22px}.logo span{color:#f1c40f}
+.nav a{color:white;text-decoration:none;margin-left:14px;font-size:13px;font-weight:600}
+.live-ticker{background:#ff4757;color:white;padding:8px 0;overflow:hidden;white-space:nowrap;font-weight:700;font-size:13px}
+.live-ticker span{animation:scroll 30s linear infinite;display:inline-block}
+@keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.hero{background:linear-gradient(135deg,#0f0c29,#302b63);color:white;padding:30px 20px;text-align:center}
+.hero h1{font-size:26px;line-height:1.2}
+.btn{background:#f1c40f;color:#0f0c29;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:800;display:inline-block;margin:8px 5px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:18px}
+.card{background:white;border-radius:16px;padding:16px;box-shadow:0 4px 15px rgba(0,0,0,0.08);text-align:center;text-decoration:none;color:#2f3542;border:2px solid transparent}
+.card h3{font-size:15px;margin:6px 0}
+.card p{font-size:11px;color:#636e72}
+.badge{display:inline-block;background:#2ed573;color:white;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:800}
+.section{padding:18px}
+.section h2{font-size:18px;margin-bottom:12px;border-left:4px solid #6c5ce7;padding-left:8px}
+.job-box{background:white;border-radius:12px;padding:14px;margin-bottom:10px;border-left:4px solid #ff4757;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.job-box .meta{font-size:11px;color:#636e72}
+.quiz-box{background:linear-gradient(135deg,#ffecd2,#fcb69f);border-radius:16px;padding:20px;text-align:center;color:#2f3542}
+.wa-float{position:fixed;bottom:18px;right:18px;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:20px;font-weight:900;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.3);z-index:999}
+footer{background:#0f0c29;color:#a4b0be;text-align:center;padding:20px;font-size:12px}
 </style>
 </head>
 <body>
-<div class="card">
+<div class="header">
 <div class="logo">Reason<span>IQ</span>99.in</div>
-<div class="small">India's Smartest Reasoning Platform | Hyderabad</div>
-<div class="timer" id="timer">00:60</div>
-<div class="q">What replaces? <br> 2, 6, 12, 20, 30,?</div>
-<div class="options" id="opts">
-<button onclick="check(0)">A) 40</button>
-<button onclick="check(1)">B) 42</button>
-<button onclick="check(2)">C) 38</button>
-<button onclick="check(3)">D) 44</button>
+<div class="nav">
+<a href="#jobs">JOBS</a><a href="#tests">TESTS</a><a href="#notes">NOTES</a>
 </div>
-<div class="result" id="res"></div>
-<div class="small">Domain Created: Oct 10, 2026 | Crack UGC NET | CSIR | SSC | Banking in 99 Days</div>
 </div>
-<script>
-let t=60, ans=false;
-let iv=setInterval(()=>{
-t--; document.getElementById('timer').innerText=`00:${String(t).padStart(2,'0')}`;
-if(t<=0 &&!ans){clearInterval(iv); show(2);}
-},1000);
-function check(i){
-if(ans) return; ans=true; clearInterval(iv);
-let b=document.querySelectorAll('#opts button');
-if(i==1){b[i].classList.add('correct'); show(1);}
-else{b[i].classList.add('wrong'); b[1].classList.add('correct'); show(0);}
-}
-function show(s){
-let r=document.getElementById('res'); r.style.display='block';
-if(s==2){r.innerHTML=`⏰ Time Up! Answer is <b>42</b><br>Pattern +4,+6,+8,+10,+12<br><a class='cta' href='https://wa.me/918185808476?text=ReasonIQ99%20TimeUp'>Next Puzzle 👉</a>`; r.style.background='#ffeaa7';}
-else if(s==1){r.innerHTML=`<div class='surprise'>🎉 CORRECT! YOU ARE TOP 1%!<br>🎁 SURPRISE UNLOCKED!<br>You Won FREE E-Book Worth ₹299!<br><a class='cta' href='https://wa.me/918185808476?text=I%20WON%20ReasonIQ99%20Challenge%2042'>Claim on WhatsApp 📲</a><br><small>Offer for First 99 Only!</small></div>`; r.className='result surprise'; r.style.display='block';}
-else{r.innerHTML=`❌ Wrong! Answer is <b>42</b><br>90% people fail this!<br><a class='cta' href='https://wa.me/918185808476?text=ReasonIQ99%20Wrong%20Answer'>Get Solution 👉</a>`; r.style.background='#fab1a0';}
-}
-</script>
+<div class="live-ticker"><span>🔴 LIVE: UGC NET Dec 2025 Notification Soon | CSIR NET Dec 2025 | GATE 2026 Application Started | JAM 2026 Admit Card Soon | Indian Coast Guard Navik DB 2026 300 Posts Out | Daily Quiz Live...</span></div>
+<div class="hero">
+<h1>Crack UGC NET | CSIR NET | JAM | GATE | Coast Guard in 99 Days</h1>
+<p>Live Job Notifications • Notes • Revision • Topic Tests • PYQ Mocks • English</p>
+<a class="btn" href="https://wa.me/918185808476?text=Hi%20ReasonIQ99%20Add%20Me">Join WhatsApp</a>
+<a class="btn" style="background:white" href="#exams">Explore Exams</a>
+</div>
+<div class="section" id="exams">
+<h2>Select Your Exam</h2>
+<div class="grid">
+<a class="card" href="#"><div class="badge">MOST POPULAR</div><h3>UGC NET</h3><p>Paper 1 Reasoning</p></a>
+<a class="card" href="#"><h3>CSIR NET</h3><p>Part A Aptitude</p></a>
+<a class="card" href="#"><h3>IIT JAM</h3><p>Reasoning & Aptitude</p></a>
+<a class="card" href="#"><h3>GATE</h3><p>General Aptitude</p></a>
+<a class="card" href="#"><h3>Coast Guard</h3><p>Navik / Yantrik</p></a>
+<a class="card" href="#"><div class="badge" style="background:#6c5ce7">NEW</div><h3>English Mastery</h3><p>Grammar + Vocab</p></a>
+</div>
+</div>
+<div class="section" id="jobs">
+<h2>🔴 Live Job Notifications</h2>
+<div class="job-box">
+<strong>UGC NET December 2025 - Official Notification</strong><br>
+<span class="meta">Last Date: 25 Oct 2025 | PG 55% | NTA</span><br>
+<a href="https://wa.me/918185808476?text=UGC%20NET%20PDF" style="font-size:12px;color:#6c5ce7;font-weight:800">Get PDF + Apply Link →</a>
+</div>
+<div class="job-box" style="border-left-color:#2ed573">
+<strong>Indian Coast Guard Navik DB & GD 2026</strong><br>
+<span class="meta">300 Posts | 10+2 Pass | Last Date: 15 Nov 2025</span><br>
+<a href="https://wa.me/918185808476?text=Coast%20Guard%20Job" style="font-size:12px;color:#6c5ce7;font-weight:800">Apply Now →</a>
+</div>
+<div class="job-box" style="border-left-color:#f1c40f">
+<strong>GATE 2026 Registration Started</strong><br>
+<span class="meta">IIT Guwahati | Last Date: 12 Oct 2025</span>
+</div>
+</div>
+<div class="section" id="notes">
+<h2>📚 Study Hub</h2>
+<div class="grid">
+<div class="card"><h3>📝 Notes</h3><p>Topic-wise Theory</p></div>
+<div class="card"><h3>⚡ Revision</h3><p>1-Page Sheets</p></div>
+<div class="card"><h3>🎯 Topic Tests</h3><p>Timer + Rank</p></div>
+<div class="card"><h3>📖 PYQ Mocks</h3><p>2015-2025 Papers</p></div>
+</div>
+</div>
+<div class="section">
+<div class="quiz-box">
+<h3>🧠 Today's Challenge</h3>
+<p><b>2, 6, 12, 20, 30, ?</b></p>
+<a href="#" style="background:#0f0c29;color:white;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:800;display:inline-block;margin-top:10px">Start 60 Sec Quiz</a>
+</div>
+</div>
+<a class="wa-float" href="https://wa.me/918185808476">WA</a>
+<footer>
+ReasonIQ99.in © 2026 | Hyderabad<br>
+Contact: 8185808476 | 99 Days Challenge<br>
+Domain: Oct 10, 2026
+</footer>
 </body>
 </html>
