@@ -1,98 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReasonIQ99.in - UGC NET | CSIR NET | JAM | GATE | Coast Guard</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020b19">
+<meta name="description" content="ReasonIQ99 — Think Smart. Solve Fast. Launching on Maha Navami, 19 October 2026.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://reasoniq99.in/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ReasonIQ99 — Coming Soon">
+<meta property="og:description" content="Think Smart. Solve Fast. Launching 19 October 2026.">
+<meta property="og:url" content="https://reasoniq99.in/">
+<meta property="og:image" content="https://reasoniq99.in/logo.png">
+<title>ReasonIQ99 — Coming Soon</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{background:#f8f9fa;color:#2f3542}
-.header{background:#0f0c29;color:white;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo{font-weight:900;font-size:22px}.logo span{color:#f1c40f}
-.nav a{color:white;text-decoration:none;margin-left:14px;font-size:13px;font-weight:600}
-.live-ticker{background:#ff4757;color:white;padding:8px 0;overflow:hidden;white-space:nowrap;font-weight:700;font-size:13px}
-.live-ticker span{animation:scroll 30s linear infinite;display:inline-block}
-@keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
-.hero{background:linear-gradient(135deg,#0f0c29,#302b63);color:white;padding:30px 20px;text-align:center}
-.hero h1{font-size:26px;line-height:1.2}
-.btn{background:#f1c40f;color:#0f0c29;padding:12px 24px;border-radius:25px;text-decoration:none;font-weight:800;display:inline-block;margin:8px 5px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:18px}
-.card{background:white;border-radius:16px;padding:16px;box-shadow:0 4px 15px rgba(0,0,0,0.08);text-align:center;text-decoration:none;color:#2f3542;border:2px solid transparent}
-.card h3{font-size:15px;margin:6px 0}
-.card p{font-size:11px;color:#636e72}
-.badge{display:inline-block;background:#2ed573;color:white;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:800}
-.section{padding:18px}
-.section h2{font-size:18px;margin-bottom:12px;border-left:4px solid #6c5ce7;padding-left:8px}
-.job-box{background:white;border-radius:12px;padding:14px;margin-bottom:10px;border-left:4px solid #ff4757;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.job-box .meta{font-size:11px;color:#636e72}
-.quiz-box{background:linear-gradient(135deg,#ffecd2,#fcb69f);border-radius:16px;padding:20px;text-align:center;color:#2f3542}
-.wa-float{position:fixed;bottom:18px;right:18px;background:#25D366;color:white;width:56px;height:56px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:20px;font-weight:900;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.3);z-index:999}
-footer{background:#0f0c29;color:#a4b0be;text-align:center;padding:20px;font-size:12px}
+:root{color-scheme:dark;--navy:#020b19;--blue:#08baff;--gold:#ffc52e;--white:#f6f8ff;--muted:#b9c9df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 50% 20%,#0b2b4b 0%,#06172d 36%,var(--navy) 76%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(circle at 12% 18%,#20bfff 0 2px,transparent 3px),radial-gradient(circle at 82% 22%,#ffc52e 0 2px,transparent 3px),radial-gradient(circle at 24% 75%,#20bfff 0 2px,transparent 3px),radial-gradient(circle at 90% 78%,#ffc52e 0 2px,transparent 3px);background-size:240px 220px,310px 260px,280px 300px,350px 320px}
+.wrap{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:clamp(22px,5vw,64px) 18px}
+.card{width:min(100%,920px);text-align:center;margin:auto}
+.brand{width:clamp(145px,25vw,225px);aspect-ratio:1;object-fit:contain;display:block;margin:0 auto clamp(22px,4vw,34px);filter:drop-shadow(0 0 22px rgba(0,174,255,.22));animation:float 5s ease-in-out infinite}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid rgba(255,197,46,.38);border-radius:999px;background:rgba(255,197,46,.07);color:#ffdc7c;font-size:.76rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+h1{margin:20px 0 8px;font-size:clamp(2.25rem,7.2vw,5.6rem);font-weight:900;line-height:.98;letter-spacing:.035em}
+h1 .shine{background:linear-gradient(100deg,#fff 10%,#d7f5ff 42%,#ffc52e 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.domain{margin:17px 0 0;font-size:clamp(1rem,3vw,1.65rem);font-weight:500;letter-spacing:clamp(.18em,1.2vw,.42em);color:#d8e7f8}
+.rule{height:1px;width:min(330px,70%);margin:25px auto;background:linear-gradient(90deg,transparent,var(--blue),var(--gold),transparent)}
+.tagline{font-size:clamp(1rem,2.5vw,1.28rem);letter-spacing:.14em;font-weight:800;color:var(--muted);margin:0 0 26px}
+.tagline strong{color:var(--gold)}.launch{font-size:clamp(1.12rem,3vw,1.6rem);font-weight:750;margin:0 0 8px;color:#ffe19a}
+.launch small{display:block;font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#a9c5e4;margin-top:9px}
+.contact{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px 28px;margin-top:30px;color:#c9d7e8;font-size:.98rem}
+.contact a{color:#42c7ff;text-decoration:none;font-weight:650}.contact a:hover{text-decoration:underline;text-underline-offset:4px}
+.founder{margin-top:15px;color:#b8c9dd;font-size:.94rem}.founder strong{color:var(--gold)}
+footer{margin-top:42px;color:#6f88a5;font-size:.75rem;letter-spacing:.05em}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@media(max-width:480px){.wrap{padding:26px 17px}.brand{width:150px}.tagline{letter-spacing:.08em}.contact{gap:12px;flex-direction:column}footer{margin-top:30px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
-<body>
-<div class="header">
-<div class="logo">Reason<span>IQ</span>99.in</div>
-<div class="nav">
-<a href="#jobs">JOBS</a><a href="#tests">TESTS</a><a href="#notes">NOTES</a>
-</div>
-</div>
-<div class="live-ticker"><span>🔴 LIVE: UGC NET Dec 2025 Notification Soon | CSIR NET Dec 2025 | GATE 2026 Application Started | JAM 2026 Admit Card Soon | Indian Coast Guard Navik DB 2026 300 Posts Out | Daily Quiz Live...</span></div>
-<div class="hero">
-<h1>Crack UGC NET | CSIR NET | JAM | GATE | Coast Guard in 99 Days</h1>
-<p>Live Job Notifications • Notes • Revision • Topic Tests • PYQ Mocks • English</p>
-<a class="btn" href="https://wa.me/918185808476?text=Hi%20ReasonIQ99%20Add%20Me">Join WhatsApp</a>
-<a class="btn" style="background:white" href="#exams">Explore Exams</a>
-</div>
-<div class="section" id="exams">
-<h2>Select Your Exam</h2>
-<div class="grid">
-<a class="card" href="#"><div class="badge">MOST POPULAR</div><h3>UGC NET</h3><p>Paper 1 Reasoning</p></a>
-<a class="card" href="#"><h3>CSIR NET</h3><p>Part A Aptitude</p></a>
-<a class="card" href="#"><h3>IIT JAM</h3><p>Reasoning & Aptitude</p></a>
-<a class="card" href="#"><h3>GATE</h3><p>General Aptitude</p></a>
-<a class="card" href="#"><h3>Coast Guard</h3><p>Navik / Yantrik</p></a>
-<a class="card" href="#"><div class="badge" style="background:#6c5ce7">NEW</div><h3>English Mastery</h3><p>Grammar + Vocab</p></a>
-</div>
-</div>
-<div class="section" id="jobs">
-<h2>🔴 Live Job Notifications</h2>
-<div class="job-box">
-<strong>UGC NET December 2025 - Official Notification</strong><br>
-<span class="meta">Last Date: 25 Oct 2025 | PG 55% | NTA</span><br>
-<a href="https://wa.me/918185808476?text=UGC%20NET%20PDF" style="font-size:12px;color:#6c5ce7;font-weight:800">Get PDF + Apply Link →</a>
-</div>
-<div class="job-box" style="border-left-color:#2ed573">
-<strong>Indian Coast Guard Navik DB & GD 2026</strong><br>
-<span class="meta">300 Posts | 10+2 Pass | Last Date: 15 Nov 2025</span><br>
-<a href="https://wa.me/918185808476?text=Coast%20Guard%20Job" style="font-size:12px;color:#6c5ce7;font-weight:800">Apply Now →</a>
-</div>
-<div class="job-box" style="border-left-color:#f1c40f">
-<strong>GATE 2026 Registration Started</strong><br>
-<span class="meta">IIT Guwahati | Last Date: 12 Oct 2025</span>
-</div>
-</div>
-<div class="section" id="notes">
-<h2>📚 Study Hub</h2>
-<div class="grid">
-<div class="card"><h3>📝 Notes</h3><p>Topic-wise Theory</p></div>
-<div class="card"><h3>⚡ Revision</h3><p>1-Page Sheets</p></div>
-<div class="card"><h3>🎯 Topic Tests</h3><p>Timer + Rank</p></div>
-<div class="card"><h3>📖 PYQ Mocks</h3><p>2015-2025 Papers</p></div>
-</div>
-</div>
-<div class="section">
-<div class="quiz-box">
-<h3>🧠 Today's Challenge</h3>
-<p><b>2, 6, 12, 20, 30, ?</b></p>
-<a href="#" style="background:#0f0c29;color:white;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:800;display:inline-block;margin-top:10px">Start 60 Sec Quiz</a>
-</div>
-</div>
-<a class="wa-float" href="https://wa.me/918185808476">WA</a>
-<footer>
-ReasonIQ99.in © 2026 | Hyderabad<br>
-Contact: 8185808476 | 99 Days Challenge<br>
-Domain: Oct 10, 2026
-</footer>
-</body>
-</html>
+<body><main class="wrap"><section class="card" aria-labelledby="headline">
+<img class="brand" src="logo.png" alt="ReasonIQ99 logo" width="225" height="225">
+<div class="eyebrow"><span class="dot" aria-hidden="true"></span> Something smart is coming</div>
+<h1 id="headline"><span class="shine">COMING SOON</span></h1>
+<p class="domain">REASONIQ99.IN</p><div class="rule" aria-hidden="true"></div>
+<p class="tagline">THINK SMART. <strong>SOLVE FAST.</strong></p>
+<p class="launch">Maha Navami Launch · 19 October 2026<small>Get ready to sharpen your reasoning</small></p>
+<div class="contact"><span>Contact: <a href="mailto:reasoniq99@gmail.com">reasoniq99@gmail.com</a></span></div>
+<p class="founder">Founder: <strong>Tr Rathod Naveen</strong></p>
+<footer>© 2026 ReasonIQ99 · Learn smarter. Think faster.</footer>
+</section></main></body></html>
