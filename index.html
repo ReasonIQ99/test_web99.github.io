@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#030b1a">
-<meta name="description" content="ReasonIQ99 — Think Smart. Solve Fast. Founding 999 waitlist registration starting soon.">
+<meta name="description" content="ReasonIQ99 — Think Smart. Solve Fast. Join the Founding 999 waitlist for competitive exam preparation.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://reasoniq99.in/">
 <link rel="icon" href="favicon.ico" sizes="any">
@@ -13,7 +13,7 @@
 <link rel="manifest" href="site.webmanifest">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ReasonIQ99 — Competitive Exam Preparation">
-<meta property="og:description" content="Think Smart. Solve Fast. Founding 999 waitlist registration starting soon.">
+<meta property="og:description" content="Think Smart. Solve Fast. Join the Founding 999 waitlist.">
 <meta property="og:url" content="https://reasoniq99.in/">
 <meta property="og:image" content="https://reasoniq99.in/logo.png">
 <title>ReasonIQ99 — Competitive Exam Preparation</title>
@@ -21,6 +21,7 @@
 :root{
   --bg:#030b1a;
   --panel:rgba(255,255,255,.05);
+  --panel-2:rgba(255,255,255,.08);
   --border:rgba(255,255,255,.12);
   --blue:#22c3ff;
   --gold:#ffc52e;
@@ -33,154 +34,435 @@ body{
   margin:0;min-height:100vh;color:var(--text);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
   background:
-    radial-gradient(900px 500px at 15% 10%,rgba(34,195,255,.16),transparent 60%),
-    radial-gradient(800px 500px at 85% 15%,rgba(255,197,46,.10),transparent 60%),
-    radial-gradient(1000px 700px at 50% 100%,rgba(34,195,255,.10),transparent 65%),
+    radial-gradient(1000px 600px at 10% 0%,rgba(34,195,255,.14),transparent 60%),
+    radial-gradient(900px 600px at 90% 10%,rgba(255,197,46,.09),transparent 60%),
+    radial-gradient(1200px 800px at 50% 100%,rgba(34,195,255,.10),transparent 65%),
     var(--bg);
-  overflow-x:hidden;
 }
 body:before{
-  content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;
   background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
-  background-size:64px 64px;
-  mask-image:radial-gradient(circle at 50% 20%,#000 0%,transparent 72%);
+  background-size:72px 72px;
+  mask-image:linear-gradient(to bottom,#000,transparent 85%);
 }
-.wrap{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 18px}
-.container{width:min(1080px,100%)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(40px,7vw,80px)}
-.nav-brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}
-.nav-logo{width:42px;height:42px;border-radius:12px;object-fit:contain;background:rgba(255,255,255,.06);border:1px solid var(--border)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1px solid rgba(34,195,255,.4);background:rgba(34,195,255,.10);color:#bfeaff;font-size:.86rem;font-weight:700;text-decoration:none}
-.hero{text-align:center}
-.badge{display:inline-flex;align-items:center;gap:9px;padding:9px 15px;border:1px solid rgba(255,197,46,.35);border-radius:999px;background:rgba(255,197,46,.08);color:#ffdc7c;font-size:.76rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
+a{color:inherit}
+img{max-width:100%}
+.container{width:min(1200px,100%);margin:auto;padding:0 20px}
+
+/* HEADER */
+.header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(18px);
+  background:rgba(3,11,26,.78);
+  border-bottom:1px solid var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:850;letter-spacing:.03em}
+.brand img{width:44px;height:44px;border-radius:12px;object-fit:contain;background:rgba(255,255,255,.07);border:1px solid var(--border)}
+.brand span{font-size:1.05rem}
+.menu{display:flex;align-items:center;gap:6px}
+.menu a{
+  padding:10px 15px;border-radius:10px;text-decoration:none;
+  color:var(--muted);font-size:.94rem;font-weight:650;transition:.2s;
+}
+.menu a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.menu a.active{color:#fff;background:rgba(34,195,255,.14);box-shadow:inset 0 0 0 1px rgba(34,195,255,.35)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;
+  border:1px solid rgba(255,197,46,.45);background:rgba(255,197,46,.10);
+  color:#ffdc7c;font-size:.88rem;font-weight:800;text-decoration:none;white-space:nowrap;
+}
+.nav-cta:hover{background:rgba(255,197,46,.18)}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:#fff;font-size:1.2rem;cursor:pointer}
+
+/* PAGE SYSTEM */
+.page{display:none;animation:fade .35s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* HERO */
+.hero{position:relative;padding:clamp(60px,9vw,120px) 0 clamp(50px,7vw,90px);text-align:center}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid rgba(255,197,46,.35);border-radius:999px;background:rgba(255,197,46,.08);color:#ffdc7c;font-size:.76rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
-h1{margin:22px 0 16px;font-size:clamp(2.4rem,7vw,5.4rem);font-weight:900;line-height:1;letter-spacing:-.02em}
+h1{margin:24px 0 18px;font-size:clamp(2.6rem,7vw,5.6rem);font-weight:900;line-height:1.02;letter-spacing:-.03em}
 .gradient{background:linear-gradient(100deg,#fff 5%,#9fe4ff 45%,var(--gold) 92%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{max-width:680px;margin:0 auto;color:var(--muted);font-size:clamp(1rem,2.4vw,1.18rem);line-height:1.65}
-.highlight{color:var(--gold);font-weight:700}
-.cta-area{margin:34px auto 0;max-width:620px}
-.waitlist-box{padding:26px 22px;border-radius:24px;background:var(--panel);border:1px solid var(--border);backdrop-filter:blur(14px)}
-.waitlist-heading{margin:0;font-size:clamp(1.15rem,3vw,1.55rem);font-weight:850;color:#ffe19a}
-.waitlist-sub{margin:10px 0 18px;color:var(--muted);font-size:.96rem;line-height:1.6}
-.notify-btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 28px;border-radius:999px;border:1px solid rgba(255,197,46,.45);background:linear-gradient(100deg,rgba(255,197,46,.16),rgba(34,195,255,.16));color:#fff;font-weight:800;text-decoration:none;letter-spacing:.03em}
-.notify-btn:hover{border-color:var(--gold);background:linear-gradient(100deg,rgba(255,197,46,.25),rgba(34,195,255,.25))}
-.note{margin:14px 0 0;color:#8fa6bf;font-size:.82rem}
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:52px 0 0}
-.feature{padding:20px 16px;border-radius:20px;background:var(--panel);border:1px solid var(--border);text-align:center}
-.feature span{display:block;font-size:1.5rem;font-weight:850;color:var(--gold)}
-.feature p{margin:6px 0 0;color:var(--muted);font-size:.86rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.social-section{margin-top:56px;text-align:center}
-.social-title{font-size:.82rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8fa6bf}
-.social{display:flex;justify-content:center;align-items:stretch;flex-wrap:wrap;gap:12px;margin-top:18px}
-.social a{display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:999px;border:1px solid var(--border);background:var(--panel);color:var(--text);text-decoration:none;font-size:.9rem;font-weight:700;transition:.2s}
-.social a:hover{transform:translateY(-3px);border-color:rgba(34,195,255,.55);background:rgba(34,195,255,.12)}
-.social svg{width:20px;height:20px;fill:currentColor}
-.whatsapp:hover{border-color:#25d366!important;background:rgba(37,211,102,.12)!important}
-.instagram:hover{border-color:#e1306c!important;background:rgba(225,48,108,.12)!important}
-.youtube:hover{border-color:#ff0000!important;background:rgba(255,0,0,.12)!important}
-.telegram:hover{border-color:#29a9eb!important;background:rgba(41,169,235,.12)!important}
-.facebook:hover{border-color:#1877f2!important;background:rgba(24,119,242,.12)!important}
-.footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;color:#74889f;font-size:.8rem}
-.footer a{color:#42c7ff;text-decoration:none}
-@media(max-width:760px){
-  .features{grid-template-columns:repeat(2,1fr)}
-  .nav-cta{display:none}
+.sub{max-width:760px;margin:0 auto;color:var(--muted);font-size:clamp(1rem,2.3vw,1.2rem);line-height:1.7}
+.hero-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:999px;text-decoration:none;font-weight:800;font-size:.98rem;transition:.2s}
+.btn-primary{background:linear-gradient(100deg,var(--blue),#7ee0ff);color:#02121f;border:0}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-ghost{border:1px solid var(--border);background:var(--panel);color:#fff}
+.btn-ghost:hover{border-color:rgba(34,195,255,.55);background:rgba(34,195,255,.12)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}
+.stat{padding:24px 16px;border-radius:22px;background:var(--panel);border:1px solid var(--border)}
+.stat b{display:block;font-size:clamp(1.5rem,3vw,2.1rem);color:var(--gold)}
+.stat span{display:block;margin-top:6px;color:var(--muted);font-size:.84rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+/* SECTIONS */
+.section{padding:clamp(55px,8vw,100px) 0}
+.section-head{max-width:720px;margin:0 auto 40px;text-align:center}
+.eyebrow{color:var(--blue);font-size:.78rem;font-weight:850;letter-spacing:.22em;text-transform:uppercase}
+h2{margin:12px 0 14px;font-size:clamp(1.8rem,4.4vw,3rem);font-weight:900;letter-spacing:-.02em}
+.section-head p{color:var(--muted);font-size:1.02rem;line-height:1.7}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  padding:28px 24px;border-radius:24px;background:var(--panel);
+  border:1px solid var(--border);transition:.25s;
 }
-@media(max-width:420px){
-  .features{grid-template-columns:1fr}
-  .social a{width:100%;justify-content:center}
+.card:hover{transform:translateY(-5px);border-color:rgba(34,195,255,.45);background:var(--panel-2)}
+.icon{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:rgba(34,195,255,.14);border:1px solid rgba(34,195,255,.28);margin-bottom:18px}
+.icon svg{width:25px;height:25px;fill:var(--blue)}
+.card h3{margin:0 0 10px;font-size:1.18rem;font-weight:800}
+.card p{margin:0;color:var(--muted);font-size:.96rem;line-height:1.65}
+
+/* WAITLIST */
+.waitlist{
+  padding:clamp(38px,6vw,64px);border-radius:32px;text-align:center;
+  background:linear-gradient(120deg,rgba(34,195,255,.14),rgba(255,197,46,.10));
+  border:1px solid rgba(255,255,255,.14);
+}
+.waitlist h2{margin-bottom:12px}
+.waitlist p{max-width:640px;margin:0 auto 26px;color:var(--muted);line-height:1.7}
+.waitlist .btn{margin-bottom:16px}
+.small-note{color:#8fa6bf;font-size:.84rem}
+
+/* SOCIAL */
+.social{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:26px}
+.social a{
+  display:flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;
+  border:1px solid var(--border);background:var(--panel);color:#fff;
+  text-decoration:none;font-size:.92rem;font-weight:750;transition:.2s;
+}
+.social a:hover{transform:translateY(-3px)}
+.social svg{width:20px;height:20px;fill:currentColor}
+.whatsapp:hover{border-color:#25d366;background:rgba(37,211,102,.13)}
+.instagram:hover{border-color:#e1306c;background:rgba(225,48,108,.13)}
+.youtube:hover{border-color:#ff0000;background:rgba(255,0,0,.13)}
+.telegram:hover{border-color:#29a9eb;background:rgba(41,169,235,.13)}
+.facebook:hover{border-color:#1877f2;background:rgba(24,119,242,.13)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.contact-card{padding:28px 24px;border-radius:24px;background:var(--panel);border:1px solid var(--border);text-align:center}
+.contact-card h3{margin:14px 0 8px}
+.contact-card p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.6}
+.contact-card a{color:#42c7ff;text-decoration:none;font-weight:700}
+
+/* FOOTER */
+.footer{margin-top:70px;padding:34px 0;border-top:1px solid var(--border)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.footer p{margin:0;color:#74889f;font-size:.85rem}
+.footer a{color:#42c7ff;text-decoration:none}
+
+@media(max-width:900px){
+  .grid-3,.contact-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .menu{
+    position:fixed;inset:74px 0 auto 0;flex-direction:column;align-items:stretch;
+    padding:14px 20px 22px;background:rgba(3,11,26,.97);border-bottom:1px solid var(--border);
+    display:none;
+  }
+  .menu.open{display:flex}
+  .menu a{padding:14px 16px;font-size:1rem}
+  .burger{display:block}
+  .nav-cta{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="container">
 
-    <nav class="nav">
-      <div class="nav-brand">
-        <img class="nav-logo" src="logo.png" alt="ReasonIQ99">
-        <span>ReasonIQ99</span>
-      </div>
-      <a class="nav-cta" href="#waitlist">Join Waitlist</a>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#home" data-link>
+      <img src="logo.png" alt="ReasonIQ99">
+      <span>ReasonIQ99</span>
+    </a>
+
+    <nav class="menu" id="menu">
+      <a href="#home" data-link>Home</a>
+      <a href="#about" data-link>About</a>
+      <a href="#courses" data-link>Courses</a>
+      <a href="#waitlist" data-link>Waitlist</a>
+      <a href="#contact" data-link>Contact</a>
     </nav>
 
-    <section class="hero">
+    <a class="nav-cta" href="#waitlist" data-link>Join Waitlist</a>
+    <button class="burger" id="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="page active" id="home">
+  <div class="container">
+    <div class="hero">
       <span class="badge"><span class="dot"></span> Founding 999 Waitlist</span>
-
-      <h1>
-        Think Smart.<br>
-        <span class="gradient">Solve Fast.</span>
-      </h1>
-
+      <h1>Think Smart.<br><span class="gradient">Solve Fast.</span></h1>
       <p class="sub">
-        ReasonIQ99 is building a focused platform for <span class="highlight">Reasoning</span> and
-        <span class="highlight">Quantitative Aptitude</span> preparation.
-        Join the Founding 999 waitlist and get early access, updates, and launch notifications.
+        ReasonIQ99 is a focused learning platform for <b>Reasoning</b> and
+        <b>Quantitative Aptitude</b>. Build speed, accuracy, and exam confidence with structured practice.
       </p>
 
-      <div class="cta-area" id="waitlist">
-        <div class="waitlist-box">
-          <p class="waitlist-heading">Waitlist Registration Starting Soon</p>
-          <p class="waitlist-sub">
-            Join our WhatsApp Channel, Telegram, Instagram, YouTube, or Facebook
-            for the fastest notifications and updates.
-          </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#waitlist" data-link>Join Founding 999</a>
+        <a class="btn btn-ghost" href="#courses" data-link>Explore Courses</a>
+      </div>
 
-          <a class="notify-btn" href="#connect">
-            Get Notified First
-          </a>
+      <div class="hero-stats">
+        <div class="stat"><b>999</b><span>Founding Members</span></div>
+        <div class="stat"><b>100%</b><span>Exam Focused</span></div>
+        <div class="stat"><b>Daily</b><span>Practice Updates</span></div>
+        <div class="stat"><b>Early</b><span>Access Benefit</span></div>
+      </div>
+    </div>
 
-          <p class="note">Limited to the first 999 founding members</p>
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow">Why ReasonIQ99</p>
+        <h2>Prepare smarter, not harder</h2>
+        <p>ReasonIQ99 is designed for aspirants who want clear concepts, regular practice, and faster problem-solving skills.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 7.2L4.2 5.4 12 3.6l7.8 1.8L12 9.2ZM4 9.6v6.8l8 4 8-4V9.6l-8 4-8-4Z"/></svg></div>
+          <h3>Reasoning Mastery</h3>
+          <p>Logical reasoning, puzzles, seating arrangement, syllogism, blood relations, and more with exam-oriented practice.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M5 3h14v2H5V3Zm0 4h14v2H5V7Zm0 4h9v2H5v-2Zm0 4h14v2H5v-2Zm0 4h9v2H5v-2Z"/></svg></div>
+          <h3>Quantitative Aptitude</h3>
+          <p>Strengthen arithmetic, algebra, percentage, ratio, time-speed-distance, data interpretation, and calculation speed.</p>
+        </div>
+
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg></div>
+          <h3>Exam Strategy</h3>
+          <p>Learn shortcuts, time management, accuracy improvement, and smart attempt selection for competitive exams.</p>
         </div>
       </div>
+    </div>
 
-      <div class="features">
-        <div class="feature"><span>999</span><p>Founding Members</p></div>
-        <div class="feature"><span>100%</span><p>Exam Focused</p></div>
-        <div class="feature"><span>Daily</span><p>Practice Updates</p></div>
-        <div class="feature"><span>Early</span><p>Access Benefit</p></div>
+    <div class="section">
+      <div class="waitlist">
+        <p class="eyebrow">Launching Soon</p>
+        <h2>Founding 999 Waitlist</h2>
+        <p>Waitlist registration is starting soon. Connect with ReasonIQ99 on WhatsApp, Telegram, Instagram, YouTube, or Facebook for the fastest launch updates.</p>
+        <a class="btn btn-primary" href="#waitlist" data-link>View Waitlist Details</a>
+        <p class="small-note">Limited to the first 999 founding members.</p>
       </div>
-    </section>
-
-    <section class="social-section" id="connect">
-      <p class="social-title">Connect for fastest updates</p>
-
-      <div class="social">
-        <a class="whatsapp" href="https://whatsapp.com/channel/0029VbEEzBT6BIEghGVl621v/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.9 9.9 0 0 0 4.74 1.2A9.9 9.9 0 0 0 12.04 2Zm4.52 12c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-          WhatsApp
-        </a>
-
-        <a class="instagram" href="https://www.instagram.com/reasoniq99" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.96.24 2.65.5.71.28 1.31.65 1.91 1.25.6.6.97 1.2 1.25 1.91.26.69.45 1.48.5 2.65.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.96-.5 2.65-.28.71-.65 1.31-1.25 1.91-.6.6-1.2.97-1.91 1.25-.69.26-1.48.45-2.65.5-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.96-.24-2.65-.5-.71-.28-1.31-.65-1.91-1.25-.6-.6-.97-1.2-1.25-1.91-.26-.69-.45-1.48-.5-2.65C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.96.5-2.65.28-.71.65-1.31 1.25-1.91.6-.6 1.2-.97 1.91-1.25.69-.26 1.48-.45 2.65-.5C8.42 2.17 8.8 2.16 12 2.16Zm0 1.98c-3.14 0-3.49.01-4.72.07-.94.04-1.45.2-1.79.33-.45.18-.77.39-1.11.73-.34.34-.55.66-.73 1.11-.13.34-.29.85-.33 1.79-.06 1.23-.07 1.58-.07 4.72s.01 3.49.07 4.72c.04.94.2 1.45.33 1.79.18.45.39.77.73 1.11.34.34.66.55 1.11.73.34.13.85.29 1.79.33 1.23.06 1.58.07 4.72.07s3.49-.01 4.72-.07c.94-.04 1.45-.2 1.79-.33.45-.18.77-.39 1.11-.73.34-.34.55-.66.73-1.11.13-.34.29-.85.33-1.79.06-1.23.07-1.58.07-4.72s-.01-3.49-.07-4.72c-.04-.94-.2-1.45-.33-1.79a2.98 2.98 0 0 0-.73-1.11 2.98 2.98 0 0 0-1.11-.73c-.34-.13-.85-.29-1.79-.33-1.23-.06-1.58-.07-4.72-.07Zm0 3.37a4.49 4.49 0 1 1 0 8.98 4.49 4.49 0 0 1 0-8.98Zm0 7.4a2.91 2.91 0 1 0 0-5.82 2.91 2.91 0 0 0 0 5.82Zm5.72-7.6a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0Z"/></svg>
-          Instagram
-        </a>
-
-        <a class="youtube" href="https://m.youtube.com/@reasoniq99" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53a3 3 0 0 0 2.11-2.12C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>
-          YouTube
-        </a>
-
-        <a class="telegram" href="https://t.me/ReasonIQ99Official" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M21.94 4.03 2.91 11.36c-1.14.45-1.13 1.09-.19 1.37l4.84 1.51 1.86 5.7c.23.63.44.87.92.87.42 0 .61-.19.85-.42l2.27-2.21 4.73 3.49c.87.48 1.5.23 1.72-.81l3.12-14.7c.32-1.27-.49-1.84-1.09-1.13ZM8.35 13.72l10.4-6.56c.49-.3.94-.14.57.17l-8.9 8.04-.35 3.73-1.72-5.38Z"/></svg>
-          Telegram
-        </a>
-
-        <a class="facebook" href="https://www.facebook.com/share/1B2gXCjmKQ/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg>
-          Facebook
-        </a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <span>© 2026 ReasonIQ99 · Learn smarter. Think faster.</span>
-      <span>Founder: <strong style="color:var(--gold)">Tr Rathod Naveen</strong></span>
-      <a href="mailto:reasoniq99@gmail.com">reasoniq99@gmail.com</a>
-    </footer>
-
+    </div>
   </div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+  <div class="container">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow">About Us</p>
+        <h2>Building a smarter way to prepare</h2>
+        <p>ReasonIQ99 is created to help competitive exam aspirants improve reasoning ability and quantitative aptitude through focused, practical, and regular learning.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Our Mission</h3>
+          <p>To make quality reasoning and quantitative aptitude preparation simple, accessible, and effective for every serious aspirant.</p>
+        </div>
+        <div class="card">
+          <h3>Our Approach</h3>
+          <p>Concept clarity, daily practice, shortcut techniques, and consistent revision—designed to improve both accuracy and speed.</p>
+        </div>
+        <div class="card">
+          <h3>Our Vision</h3>
+          <p>To become a trusted learning platform for aspirants preparing for government, banking, SSC, and other competitive examinations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="waitlist">
+        <h2>Be part of the beginning</h2>
+        <p>Join the Founding 999 community and receive early updates about courses, practice material, and platform launch.</p>
+        <a class="btn btn-primary" href="#waitlist" data-link>Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="page" id="courses">
+  <div class="container">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow">What We Are Building</p>
+        <h2>Upcoming learning tracks</h2>
+        <p>ReasonIQ99 will offer structured preparation resources for reasoning and quantitative aptitude.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Reasoning Ability</h3>
+          <p>Logical reasoning, puzzles, seating arrangement, coding-decoding, syllogism, direction sense, and more.</p>
+        </div>
+        <div class="card">
+          <h3>Quantitative Aptitude</h3>
+          <p>Percentage, profit & loss, ratio, time & work, time-speed-distance, simplification, and data interpretation.</p>
+        </div>
+        <div class="card">
+          <h3>Daily Practice</h3>
+          <p>Regular practice questions and revision material to build consistency and improve problem-solving speed.</p>
+        </div>
+        <div class="card">
+          <h3>Shortcut Techniques</h3>
+          <p>Learn practical methods to solve questions faster and improve accuracy under exam pressure.</p>
+        </div>
+        <div class="card">
+          <h3>Exam-Oriented Content</h3>
+          <p>Content designed around the requirements of competitive examinations and aptitude-based recruitment tests.</p>
+        </div>
+        <div class="card">
+          <h3>Early Access</h3>
+          <p>Founding 999 members will receive priority updates and early information about new features and batches.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section class="page" id="waitlist">
+  <div class="container">
+    <div class="section">
+      <div class="waitlist">
+        <p class="eyebrow">Registration Opening Soon</p>
+        <h2>Founding 999 Waitlist</h2>
+        <p>
+          ReasonIQ99 waitlist registration is starting soon. Please visit this website regularly and connect with us on social media for the fastest notifications and updates.
+        </p>
+
+        <a class="btn btn-primary" href="#connect" data-link>Connect for Updates</a>
+        <p class="small-note">Limited to the first 999 founding members.</p>
+
+        <div class="social" id="connect">
+          <a class="whatsapp" href="https://whatsapp.com/channel/0029VbEEzBT6BIEghGVl621v/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2A9.9 9.9 0 0 0 2.1 11.9c0 1.75.46 3.45 1.32 4.95L2 22l5.3-1.38a9.9 9.9 0 0 0 4.74 1.2A9.9 9.9 0 0 0 12.04 2Zm4.52 12c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+            WhatsApp
+          </a>
+
+          <a class="telegram" href="https://t.me/ReasonIQ99Official" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21.94 4.03 2.91 11.36c-1.14.45-1.13 1.09-.19 1.37l4.84 1.51 1.86 5.7c.23.63.44.87.92.87.42 0 .61-.19.85-.42l2.27-2.21 4.73 3.49c.87.48 1.5.23 1.72-.81l3.12-14.7c.32-1.27-.49-1.84-1.09-1.13ZM8.35 13.72l10.4-6.56c.49-.3.94-.14.57.17l-8.9 8.04-.35 3.73-1.72-5.38Z"/></svg>
+            Telegram
+          </a>
+
+          <a class="instagram" href="https://www.instagram.com/reasoniq99" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.96.24 2.65.5.71.28 1.31.65 1.91 1.25.6.6.97 1.2 1.25 1.91.26.69.45 1.48.5 2.65.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.96-.5 2.65-.28.71-.65 1.31-1.25 1.91-.6.6-1.2.97-1.91 1.25-.69.26-1.48.45-2.65.5-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.96-.24-2.65-.5-.71-.28-1.31-.65-1.91-1.25-.6-.6-.97-1.2-1.25-1.91-.26-.69-.45-1.48-.5-2.65C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.96.5-2.65.28-.71.65-1.31 1.25-1.91.6-.6 1.2-.97 1.91-1.25.69-.26 1.48-.45 2.65-.5C8.42 2.17 8.8 2.16 12 2.16Zm0 1.98c-3.14 0-3.49.01-4.72.07-.94.04-1.45.2-1.79.33-.45.18-.77.39-1.11.73-.34.34-.55.66-.73 1.11-.13.34-.29.85-.33 1.79-.06 1.23-.07 1.58-.07 4.72s.01 3.49.07 4.72c.04.94.2 1.45.33 1.79.18.45.39.77.73 1.11.34.34.66.55 1.11.73.34.13.85.29 1.79.33 1.23.06 1.58.07 4.72.07s3.49-.01 4.72-.07c.94-.04 1.45-.2 1.79-.33.45-.18.77-.39 1.11-.73.34-.34.55-.66.73-1.11.13-.34.29-.85.33-1.79.06-1.23.07-1.58.07-4.72s-.01-3.49-.07-4.72c-.04-.94-.2-1.45-.33-1.79a2.98 2.98 0 0 0-.73-1.11 2.98 2.98 0 0 0-1.11-.73c-.34-.13-.85-.29-1.79-.33-1.23-.06-1.58-.07-4.72-.07Zm0 3.37a4.49 4.49 0 1 1 0 8.98 4.49 4.49 0 0 1 0-8.98Zm0 7.4a2.91 2.91 0 1 0 0-5.82 2.91 2.91 0 0 0 0 5.82Zm5.72-7.6a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0Z"/></svg>
+            Instagram
+          </a>
+
+          <a class="youtube" href="https://m.youtube.com/@reasoniq99" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.39.53A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.11 2.12c1.89.53 9.39.53 9.39.53s7.5 0 9.39-.53a3 3 0 0 0 2.11-2.12C24 15.9 24 12 24 12s0-3.9-.5-5.8ZM9.55 15.57V8.43L15.82 12l-6.27 3.57Z"/></svg>
+            YouTube
+          </a>
+
+          <a class="facebook" href="https://www.facebook.com/share/1B2gXCjmKQ/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+  <div class="container">
+    <div class="section">
+      <div class="section-head">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Connect with ReasonIQ99</h2>
+        <p>For updates, collaboration, or support, connect with us through email or social media.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4Zm2 2v.4l6 3.6 6-3.6V6H6Zm12 3.2-6 3.6-6-3.6V18h12V9.2Z"/></svg></div>
+          <h3>Email</h3>
+          <p><a href="mailto:reasoniq99@gmail.com">reasoniq99@gmail.com</a></p>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5Z"/></svg></div>
+          <h3>Founder</h3>
+          <p><strong style="color:var(--gold)">Tr Rathod Naveen</strong></p>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg></div>
+          <h3>Website</h3>
+          <p><a href="https://reasoniq99.in/">reasoniq99.in</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 ReasonIQ99 · Learn smarter. Think faster.</p>
+    <p>Founder: <strong style="color:var(--gold)">Tr Rathod Naveen</strong></p>
+    <p><a href="mailto:reasoniq99@gmail.com">reasoniq99@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+const pages = document.querySelectorAll(".page");
+const links = document.querySelectorAll("[data-link]");
+const menu = document.getElementById("menu");
+const burger = document.getElementById("burger");
+
+function showPage(id, push = true){
+  const target = document.getElementById(id) ? id : "home";
+
+  pages.forEach(page => page.classList.remove("active"));
+  document.getElementById(target).classList.add("active");
+
+  links.forEach(link => {
+    link.classList.toggle("active", link.getAttribute("href") === "#" + target);
+  });
+
+  if(push && location.hash !== "#" + target){
+    history.pushState(null, "", "#" + target);
+  }
+
+  window.scrollTo({top:0, behavior:"smooth"});
+  menu.classList.remove("open");
+}
+
+document.addEventListener("click", e => {
+  const link = e.target.closest("[data-link]");
+  if(!link) return;
+
+  const id = link.getAttribute("href").replace("#","");
+  e.preventDefault();
+  showPage(id, true);
+});
+
+window.addEventListener("popstate", () => {
+  showPage(location.hash.replace("#","") || "home", false);
+});
+
+burger.addEventListener("click", () => menu.classList.toggle("open"));
+
+showPage(location.hash.replace("#","") || "home", false);
+</script>
+
 </body>
 </html>
